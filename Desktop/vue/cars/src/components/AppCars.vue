@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <router-link to="/add-car">Add car</router-link>
         <table class="table table-light">
             <thead>
                 <tr>
@@ -35,21 +36,40 @@ import CarsService from '../services/CarsService.js'
 export default {
     data() {
         return {
-            cars: []
+            cars: [],
+            car: {
+                "brand": "",
+                "model": "",
+                "year": 0,
+                "maxSpeed": 0,
+                "isAutomatic": false,
+                "engine": "",
+                "numberOfDoors": 0,
+            }
+        }
+    },
+
+    methods: {
+        async addCar() {
+            try {
+                await CarsService.addCar('/cars', this.car);
+                this.$router.push('/')
+                console.log('added car');
+
+            } catch(e) {
+                console.log(e)
+            }
         }
     },
 
     async created() {
         try {
-            const { data } = await CarsService.getAll('/cars');
+        const { data } = await CarsService.getAll('/cars');
             this.cars = data;
-            
-
         }
         catch(e){
             console.log(e)
         }
-        console.log(this.cars);
     }
         
 }
