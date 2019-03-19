@@ -14,7 +14,9 @@ class Http {
     put(url, body) {
         return Service.put(url, body);
     }
-
+    delete(url) {
+        return Service.delete(url);
+    }
 }
 
 export default new Http;

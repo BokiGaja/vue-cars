@@ -12,6 +12,10 @@ class CarsService {
     update(url, body) {
         return Http.put(url,body);
     }
+
+    delete(url) {
+        return Http.delete(url);
+    }
 }
 
 export default new CarsService();

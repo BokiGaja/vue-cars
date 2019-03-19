@@ -25,7 +25,10 @@
                     <td>{{ car.isAutomatic }}</td>
                     <td>{{ car.engine }}</td>
                     <td>{{ car.numberOfDoors }}</td>
-                    <td><router-link class="btn btn-warning" :to="'/edit/' + car.id"> Edit </router-link></td>
+                    <td>
+                        <router-link class="btn btn-warning" :to="'/edit/' + car.id"> Edit </router-link>
+                        <button class="btn btn-danger" @click="deleteCar(car.id)"> DEL </button>
+                    </td>
                 </tr>
             </tbody>
             
@@ -52,15 +55,16 @@ export default {
     },
 
     methods: {
-        async addCar() {
-            try {
-                await CarsService.addCar('/cars', this.car);
-                this.$router.push('/')
-                console.log('added car');
+        async deleteCar(id) {
+            
+            try{ 
+
+                await CarsService.delete('/cars/' + id);
 
             } catch(e) {
-                console.log(e)
+                console.log(e);
             }
+            
         }
     },
 
