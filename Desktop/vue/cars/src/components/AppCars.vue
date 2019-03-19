@@ -12,6 +12,7 @@
                     <th>isAutomatic</th>
                     <th>Engine</th>
                     <th>numberOfDoors</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -22,8 +23,9 @@
                     <td>{{ car.year }}</td>
                     <td>{{ car.maxSpeed }}</td>
                     <td>{{ car.isAutomatic }}</td>
-                    <td>{{ car.Engine }}</td>
+                    <td>{{ car.engine }}</td>
                     <td>{{ car.numberOfDoors }}</td>
+                    <td><router-link class="btn btn-warning" :to="'/edit/' + car.id"> Edit </router-link></td>
                 </tr>
             </tbody>
             

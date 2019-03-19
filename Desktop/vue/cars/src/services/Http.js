@@ -10,16 +10,11 @@ class Http {
     }
     create(url, body) {
         return Service.post(url,body);
-    }    
+    }
+    put(url, body) {
+        return Service.put(url, body);
+    }
+
 }
 
 export default new Http;
-
-
-
-
-
-
-
-
-

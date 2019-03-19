@@ -3,7 +3,7 @@
 <template>
     <div class="container">
 
- <form @submit.prevent="addCar">
+ <form @submit.prevent="save">
 
                 <div class="form-group">
                     <label>Brand</label>
@@ -61,21 +61,39 @@ export default {
                 "isAutomatic": false,
                 "engine": "",
                 "numberOfDoors": 0,
-            }
+            },
+            isEditing: false
         }
     },
 
     methods: {
+
+        save() {
+            this.isEditing ? this.editCar() : this.addCar();
+        },
+
         async addCar() {
             try {
                 await CarsService.addCar('/cars', this.car);
-                this.$router.push('/cars')
+                this.$router.push('/cars');
                 console.log('added car');
+            } catch(e) {
+                console.log(e);
+            }
 
+            
+        },
+
+
+        async editCar() {
+            try {
+                await CarsService.update('/cars/' + this.car.id, this.car);
+                console.log('updated car');
             } catch(e) {
                 console.log(e)
             }
         },
+        
         showPreview() {
             alert(`
             Car brand: ${this.car.brand}, 
@@ -86,7 +104,16 @@ export default {
             Car Number of doors: ${this.car.numberOfDoors}, `)
         }
     },
- 
+
+    async created() {
+        try {
+            const { data } = await CarsService.getAll('/cars/' + this.$route.params.id);
+            this.car = data;
+            this.isEditing = true;
+        } catch(e) {
+            console.log(e);
+        }
+    }
 }
 </script>
 
