@@ -40,7 +40,8 @@
                     <input v-model="car.numberOfDoors" type="number" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-primary">Add car</button>
-                <button type="reset" class="ml-2 btn btn-warning">Reset</button>
+                <button type="reset" class="ml-2 btn btn-danger">Reset</button>
+                <button type="button" @click="showPreview" class="ml-2 btn btn-warning">Preview</button>
             </form>
 
         
@@ -74,6 +75,15 @@ export default {
             } catch(e) {
                 console.log(e)
             }
+        },
+        showPreview() {
+            alert(`
+            Car brand: ${this.car.brand}, 
+            Car model: ${this.car.model}, 
+            Car year: ${this.car.year}, 
+            Car is automatic: ${this.car.isAutomatic}, 
+            Car engine: ${this.car.engine}, 
+            Car Number of doors: ${this.car.numberOfDoors}, `)
         }
     },
  
