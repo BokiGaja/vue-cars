@@ -7,17 +7,17 @@
 
                 <div class="form-group">
                     <label>Brand</label>
-                    <input v-model="car.brand" type="text" class="form-control">
+                    <input v-model="car.brand" pattern=".{2,}" title="2 characters minimum" type="text" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label>Model</label>
-                    <input v-model="car.model" type="text" class="form-control">
+                    <input v-model="car.model" pattern=".{2,}" title="2 characters minimum" type="text" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label>Year</label>
-                    <input v-model="car.year"  type="number" class="form-control">
+                    <input v-model="car.year"  type="number" class="form-control" required>
                 </div>
 
                 <div class="form-group">
@@ -32,12 +32,12 @@
 
                 <div class="form-group">
                     <label>Engine</label>
-                    <input v-model="car.engine"  type="text" class="form-control">
+                    <input v-model="car.engine"  type="text" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label>Number of doors</label>
-                    <input v-model="car.numberOfDoors" type="number" class="form-control">
+                    <input v-model="car.numberOfDoors" type="number" class="form-control" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Add car</button>
                 <button type="reset" class="ml-2 btn btn-danger">Reset</button>
