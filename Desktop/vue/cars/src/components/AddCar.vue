@@ -40,6 +40,7 @@
                     <input v-model="car.numberOfDoors" type="number" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-primary">Add car</button>
+                <button type="reset" class="ml-2 btn btn-warning">Reset</button>
             </form>
 
         
