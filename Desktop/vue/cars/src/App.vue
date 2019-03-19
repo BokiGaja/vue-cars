@@ -23,7 +23,6 @@
 </template>
 
 <script>
-//http://localhost:3000/explorer
 
 
 export default {

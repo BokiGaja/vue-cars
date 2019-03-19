@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
 import router from './router.js'
+import Http from './services/Http'
+
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
